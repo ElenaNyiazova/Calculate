@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class Action implements ActionListener { // Buttons and actions listener
+    int i;
     private final NewGui newGui;
 
     public Action(NewGui newGui) {
@@ -15,7 +16,13 @@ class Action implements ActionListener { // Buttons and actions listener
         String event = e.getActionCommand();
 
         if (event.matches("[-+]?\\d+")) {
-            int i = Integer.parseInt(event);
+            try{
+                i = Integer.parseInt(event);
+            }catch(NumberFormatException exc){
+                exc.fillInStackTrace();
+            }
+
+
             newGui.window.setText(newGui.window.getText() + i);
 
         } else if (event.equals("+")) { //todo change metods

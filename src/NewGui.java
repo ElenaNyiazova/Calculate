@@ -37,7 +37,6 @@ public class NewGui extends JFrame {
         cont.setLayout(new GridLayout(6,3,5,5));
 
         buttons[0] = dellAll;
-        // add window
         buttons[1] = dellLast;
         buttons[2] = one;
         buttons[3] = two;

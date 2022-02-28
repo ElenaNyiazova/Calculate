@@ -20,7 +20,7 @@ class DellAction implements ActionListener { //delete listener
 
         } else if (ae.getActionCommand().equals("<-")) { //delete latest char
 
-            if (newGui.window.getText() != null) {
+            if (newGui.window.getText() != null && newGui.window.getText().length()>0) {
                 String str = newGui.window.getText();
                 int i = str.length() - 1;
                 String str2 = str.substring(0, i);
