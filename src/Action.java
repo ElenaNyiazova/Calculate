@@ -22,10 +22,12 @@ class Action implements ActionListener { // Buttons and actions listener
                 exc.fillInStackTrace();
             }
 
-
             newGui.window.setText(newGui.window.getText() + i);
 
-        } else if (event.equals("+")) { //todo change metods
+        } //else if(event.matches("")){//todo символы и не =
+
+       // metod(у);
+        else if (event.equals("+")) {
             if (newGui.window.getText() != null) {
                 if (newGui.x == 0) {
                     newGui.x = Integer.parseInt(newGui.window.getText());
@@ -40,6 +42,8 @@ class Action implements ActionListener { // Buttons and actions listener
                 }
             }
             newGui.window.setText("");
+
+
         } else if (event.equals("-")) {
             if (newGui.window.getText() != null) {
                 if (newGui.x == 0) {
@@ -55,6 +59,7 @@ class Action implements ActionListener { // Buttons and actions listener
                 }
             }
             newGui.window.setText("");
+
         } else if (event.equals("*")) {
             if (newGui.window.getText() != null) {
                 if (newGui.x == 0) {
@@ -70,6 +75,7 @@ class Action implements ActionListener { // Buttons and actions listener
                 }
             }
             newGui.window.setText("");
+
         } else if (event.equals("/")) {
             if (newGui.window.getText() != null) {
                 if (newGui.x == 0) {
@@ -85,6 +91,7 @@ class Action implements ActionListener { // Buttons and actions listener
                 }
             }
             newGui.window.setText("");
+
         } else if (event.equals("=")) {
             if (newGui.x == 0) {
                 newGui.window.setText(Integer.toString(newGui.result));
@@ -103,4 +110,21 @@ class Action implements ActionListener { // Buttons and actions listener
             }
         }
     }
+
+//    public void metod (char c) {
+//        if (newGui.window.getText() != null) {
+//            if (newGui.x == 0) {
+//                newGui.x = Integer.parseInt(newGui.window.getText());
+//                newGui.operation = c;
+//
+//            } else {
+//                newGui.y = Integer.parseInt(newGui.window.getText());
+//                ResultMakerClass res = new ResultMakerClass();
+//                newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+//                newGui.x = newGui.result;
+//                newGui.operation = c;
+//            }
+//        }
+//        newGui.window.setText("");
+//    }
 }
