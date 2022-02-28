@@ -26,8 +26,8 @@ class ResultMakerClass {
                         result = x / y;
                     break;
             }
-        }catch (ArithmeticException e2) {
-            e2.toString();
+        }catch (ArithmeticException e) {
+            e.fillInStackTrace();
         }
         return result;
     }

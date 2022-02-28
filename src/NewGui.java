@@ -4,8 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 
 public class NewGui extends JFrame {
-    int x=0,y=0,result=0;
+    int x=0, y=0, result=0;
     char operation=' ';
+    JButton [] buttons = new JButton[17];
+    Font fontArial = new Font("Arial", Font.BOLD, 35);
 
     public JTextField window = new JTextField("", SwingConstants.CENTER);
     private JButton one = new JButton("1");
@@ -34,44 +36,45 @@ public class NewGui extends JFrame {
         Container cont = this.getContentPane();
         cont.setLayout(new GridLayout(6,3,5,5));
 
-        one.addActionListener(new Action(this));
-        two.addActionListener(new Action(this));
-        three.addActionListener(new Action(this));
-        foure.addActionListener(new Action(this));
-        five.addActionListener(new Action(this));
-        six.addActionListener(new Action(this));
-        seven.addActionListener(new Action(this));
-        eight.addActionListener(new Action(this));
-        nine.addActionListener(new Action(this));
-        zero.addActionListener(new Action(this));
-        plas.addActionListener(new Action(this));
-        mines.addActionListener(new Action(this));
-        umnoj.addActionListener(new Action(this));
-        delenie.addActionListener(new Action(this));
-        ravno.addActionListener(new Action(this));
-        dellLast.addActionListener(new DellAction(this));
-        dellAll.addActionListener(new DellAction(this));
+        buttons[0] = dellAll;
+        // add window
+        buttons[1] = dellLast;
+        buttons[2] = one;
+        buttons[3] = two;
+        buttons[4] = three;
+        buttons[5] = foure;
+        buttons[6] = five;
+        buttons[7] = six;
+        buttons[8] = seven;
+        buttons[9] = eight;
+        buttons[10] = nine;
+        buttons[11] = plas;
+        buttons[12] = zero;
+        buttons[13] = mines;
+        buttons[14] = umnoj;
+        buttons[15] = delenie;
+        buttons[16] = ravno;
+
+        window.setFont(fontArial);
+        buttons[0].setFont(fontArial);
+        buttons[1].setFont(fontArial);
+
+        for(int i = 2; i < buttons.length; i++){
+            buttons[i].setFont(fontArial);
+            buttons[i].addActionListener(new Action(this));
+        }
+
+        buttons[0].addActionListener(new DellAction(this));
+        buttons[1].addActionListener(new DellAction(this));
 
         cont.add(dellAll);
         cont.add(window);
-        cont.add(dellLast);
-        cont.add(one);
-        cont.add(two);
-        cont.add(three);
-        cont.add(foure);
-        cont.add(five);
-        cont.add(six);
-        cont.add(seven);
-        cont.add(eight);
-        cont.add(nine);
-        cont.add(plas);
-        cont.add(zero);
-        cont.add(mines);
-        cont.add(umnoj);
-        cont.add(delenie);
-        cont.add(ravno);
+
+        for(int i = 1; i < buttons.length; i++){
+            cont.add(buttons[i]);
+        }
+
         this.setVisible(true);
     }
-
 }
 
