@@ -1,4 +1,4 @@
-package Calculate;
+package src;
 
 class ResultMakerClass {
     int x=0,y=0,result=0;

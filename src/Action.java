@@ -1,0 +1,99 @@
+package src;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class Action implements ActionListener { // Buttons and actions listener
+    private final NewGui newGui;
+
+    public Action(NewGui newGui) {
+        this.newGui = newGui;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        String event = e.getActionCommand();
+
+        if (event.matches("[-+]?\\d+")) {
+            int i = Integer.parseInt(event);
+            newGui.window.setText(newGui.window.getText() + i);
+
+        } else if (event.equals("+")) { //todo change metods
+            if (newGui.window.getText() != null) {
+                if (newGui.x == 0) {
+                    newGui.x = Integer.parseInt(newGui.window.getText());
+                    newGui.operation = '+';
+
+                } else {
+                    newGui.y = Integer.parseInt(newGui.window.getText());
+                    ResultMakerClass res = new ResultMakerClass();
+                    newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+                    newGui.x = newGui.result;
+                    newGui.operation = '+';
+                }
+            }
+            newGui.window.setText("");
+        } else if (event.equals("-")) {
+            if (newGui.window.getText() != null) {
+                if (newGui.x == 0) {
+                    newGui.x = Integer.parseInt(newGui.window.getText());
+                    newGui.operation = '-';
+
+                } else {
+                    newGui.y = Integer.parseInt(newGui.window.getText());
+                    ResultMakerClass res = new ResultMakerClass();
+                    newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+                    newGui.x = newGui.result;
+                    newGui.operation = '-';
+                }
+            }
+            newGui.window.setText("");
+        } else if (event.equals("*")) {
+            if (newGui.window.getText() != null) {
+                if (newGui.x == 0) {
+                    newGui.x = Integer.parseInt(newGui.window.getText());
+                    newGui.operation = '*';
+
+                } else {
+                    newGui.y = Integer.parseInt(newGui.window.getText());
+                    ResultMakerClass res = new ResultMakerClass();
+                    newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+                    newGui.x = newGui.result;
+                    newGui.operation = '*';
+                }
+            }
+            newGui.window.setText("");
+        } else if (event.equals("/")) {
+            if (newGui.window.getText() != null) {
+                if (newGui.x == 0) {
+                    newGui.x = Integer.parseInt(newGui.window.getText());
+                    newGui.operation = '/';
+
+                } else {
+                    newGui.y = Integer.parseInt(newGui.window.getText());
+                    ResultMakerClass res = new ResultMakerClass();
+                    newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+                    newGui.x = newGui.result;
+                    newGui.operation = '/';
+                }
+            }
+            newGui.window.setText("");
+        } else if (event.equals("=")) {
+            if (newGui.x == 0) {
+                newGui.window.setText(Integer.toString(newGui.result));
+                //operation = ' ';
+            } else {
+                newGui.y = Integer.parseInt(newGui.window.getText());
+                ResultMakerClass res = new ResultMakerClass();
+                newGui.result = (res.ResultMaker(newGui.x, newGui.y, newGui.operation));
+                newGui.operation = ' ';
+                newGui.x = 0;
+                newGui.y = 0;
+
+                newGui.window.setText("");
+                newGui.window.setText(Integer.toString(newGui.result));
+                newGui.result = 0;
+            }
+        }
+    }
+}
